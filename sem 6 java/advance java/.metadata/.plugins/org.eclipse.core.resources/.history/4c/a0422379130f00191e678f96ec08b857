@@ -1,0 +1,12 @@
+import java.io.InputStream;
+//url connection demo
+public class test1 {
+
+	public static void main(String[] args) 
+	{
+		URL obj = new URL("https://gtu.ac.in");
+		URLConnecion conn = obj.openConnection();
+
+	}
+
+}

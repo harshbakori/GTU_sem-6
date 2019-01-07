@@ -1,0 +1,52 @@
+#hi {
+    color: red;
+    margin-left: 48%;
+    color: aqua;
+}
+
+#h3 {
+    border: 0px;;
+    background-color: crimson;
+}
+
+fieldset {
+    background-color: aqua;
+    border-radius: 7px;
+}
+
+legend {
+    margin-left: 280px;
+    background-color: aliceblue;
+    border-radius: 7px;
+}
+
+#the {
+    height: 200px;
+    width: 390px;
+}
+
+form1 {
+    background-color: black;
+
+}
+
+#password {
+    margin: 5px;
+    margin-left: 7px;
+    width: 300px;
+    border: 0px;
+}
+
+#mail_input {
+    margin: 5px;
+    width: 300px;
+    border: 0px;
+}
+
+#submit {
+    margin-top: 3px;
+    border-radius: 3px;
+    border: solid aqua 1px;
+    margin-left: 40px;
+    width: 300px;
+}

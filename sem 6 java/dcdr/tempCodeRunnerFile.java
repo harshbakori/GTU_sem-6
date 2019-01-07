@@ -1,0 +1,1 @@
+float p[]=new float[n];
