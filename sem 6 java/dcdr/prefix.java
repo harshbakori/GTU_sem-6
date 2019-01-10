@@ -16,7 +16,7 @@ class prefix
         {
             System.out.println("enter the string of ");
             st[i] = Sc.next();
-            System.out.println("debug");
+           // System.out.println("debug");
         }
         
         for(int j = 1;j<n;j++)
@@ -25,6 +25,7 @@ class prefix
             if (st[j].startsWith(st[j-1]))
             {
                 System.out.println("true");
+                System.out.println(st[j-1]);
             }
             else
             {
