@@ -42,11 +42,3 @@ form1 {
     width: 300px;
     border: 0px;
 }
-
-#submit {
-    margin-top: 3px;
-    border-radius: 3px;
-    border: solid aqua 1px;
-    margin-left: 40px;
-    width: 300px;
-}
