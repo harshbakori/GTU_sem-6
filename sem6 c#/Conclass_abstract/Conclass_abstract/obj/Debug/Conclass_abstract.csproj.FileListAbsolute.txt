@@ -1,0 +1,7 @@
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\bin\Debug\Conclass_abstract.exe.config
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\bin\Debug\Conclass_abstract.exe
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\bin\Debug\Conclass_abstract.pdb
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.exe
+C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.pdb

@@ -1,0 +1,11 @@
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\bin\Debug\netcoreapp2.1\tutorial_5.deps.json
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\bin\Debug\netcoreapp2.1\tutorial_5.runtimeconfig.json
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\bin\Debug\netcoreapp2.1\tutorial_5.runtimeconfig.dev.json
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\bin\Debug\netcoreapp2.1\tutorial_5.dll
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\bin\Debug\netcoreapp2.1\tutorial_5.pdb
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\obj\Debug\netcoreapp2.1\tutorial_5.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\obj\Debug\netcoreapp2.1\tutorial_5.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\obj\Debug\netcoreapp2.1\tutorial_5.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\obj\Debug\netcoreapp2.1\tutorial_5.AssemblyInfo.cs
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\obj\Debug\netcoreapp2.1\tutorial_5.dll
+C:\Users\admin\source\repos\tutorial_5\tutorial_5\obj\Debug\netcoreapp2.1\tutorial_5.pdb

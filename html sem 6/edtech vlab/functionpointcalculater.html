@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Function point matrix</title>
+</head>
+<script>
+    function res()
+    {
+        var sum = 0;
+        /////////////////////////////////simple///////////////////////////////////////////
+                sum = sum + parseInt(document.getElementById("i1").value)*7;
+                sum = sum + parseInt(document.getElementById("i2").value)*5;
+                sum = sum + parseInt(document.getElementById("i3").value)*3;
+                sum = sum + parseInt(document.getElementById("i4").value)*4;
+                sum = sum + parseInt(document.getElementById("i5").value)*3;
+    
+        var ufc = sum;
+        var gsc = parseInt(document.getElementById("i6").value);
+        var result = ufc * (0.65+(gsc*0.01));
+        document.getElementById("as").innerHTML = result ;    
+        
+        //////////////////////////////////////////////avrage/////////////////////////////
+        sum=0;
+        
+                sum = sum + parseInt(document.getElementById("i1").value)*10;
+                sum = sum + parseInt(document.getElementById("i2").value)*7;
+                sum = sum + parseInt(document.getElementById("i3").value)*4;
+                sum = sum + parseInt(document.getElementById("i4").value)*5;
+                sum = sum + parseInt(document.getElementById("i5").value)*4;
+    
+        var ufc = sum;
+        var gsc = parseInt(document.getElementById("i6").value);
+        var result = ufc * (0.65+(gsc*0.01));
+        document.getElementById("aa").innerHTML = result ;
+        
+        /////////////////////////////////////////complex//////////////////////////////
+        sum=0;
+                sum = sum + parseInt(document.getElementById("i1").value)*15;
+                sum = sum + parseInt(document.getElementById("i2").value)*10;
+                sum = sum + parseInt(document.getElementById("i3").value)*6;
+                sum = sum + parseInt(document.getElementById("i4").value)*7;
+                sum = sum + parseInt(document.getElementById("i5").value)*6;
+    
+        var ufc = sum;
+        var gsc = parseInt(document.getElementById("i6").value);
+        var result = ufc * (0.65+(gsc*0.01));
+        document.getElementById("ac").innerHTML = result ;
+    }
+    </script>
+
+<body>
+    <div id="head">
+        <h1 align="center">
+            Function Point Analysis
+        </h1>
+    </div>
+    <div id="input">
+       
+        <table width="60%" cellspacing="1" cellpadding="3" border="1" align="center">
+            <tr align="left">
+                <th>Measure parameters</th>
+                <th>Count</th>
+                <th>Simple</th>
+                <th>Avrage</th>
+                <th>Complex</th>
+            </tr>
+
+            <tr align="left">
+                <td>Number of user inputs</td>
+                <td><input id="i1" type="number"></td>
+                <td>7</td>
+                <td>10</td>
+                <td>15</td>
+            </tr>
+            <tr align="left">
+                <td>Number of user outputs</td>
+                <td><input id="i2" type="number"></td>
+                <td>5</td>
+                <td>7</td>
+                <td>10</td>
+
+            </tr>
+            <tr align="left">
+                <td>Number of user enquires</td>
+                <td><input id="i3" type="number"></td>
+                <td>3</td>
+                <td>4</td>
+                <td>6</td>
+
+            </tr>
+            <tr align="left">
+                <td>Number of user files</td>
+                <td><input id="i4" type="number"></td>
+                <td>4</td>
+                <td>5</td>
+                <td>7</td>
+
+            </tr>
+            <tr align="left">
+                <td>Number of external interfaces</td>
+                <td><input id="i5" type="number"></td>
+                <td>3</td>
+                <td>4</td>
+                <td>6</td>
+
+            </tr>
+            <tr align="left">
+                <td>SUM of GSC</td>
+                <td colspan="4"><input id="i6" type="number" max="14"></td>
+
+            </tr>
+            
+            <tr>
+                <td colspan="2">FPC</td>
+                <td id="as"></td>
+                <td id="aa"></td>
+                <td id="ac"></td>
+            </tr>
+        </table>
+        <br>
+
+
+    </div>
+    <br>
+    <div align="center"> <input type="button" onclick="res()" value="Calculate" align="center">
+    </div>
+
+
+    <div id="equaction" align="center">
+        <h3 align="center">FPC = UFC*(0.65+sum(GSC)*0.01)</h3>
+        FPC = Function Point Count
+        <br>
+        UFC = Unadjusted Function Point Count
+        <br>
+        GSC = General System Characteristics
+    </div>
+    <div id="res" align="center">
+    </div>
+
+
+
+</body>
+
+</html>

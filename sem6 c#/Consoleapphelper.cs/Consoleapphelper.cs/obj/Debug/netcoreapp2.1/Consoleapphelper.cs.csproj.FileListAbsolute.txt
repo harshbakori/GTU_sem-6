@@ -1,0 +1,11 @@
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\obj\Debug\netcoreapp2.1\Consoleapphelper.cs.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\obj\Debug\netcoreapp2.1\Consoleapphelper.cs.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\obj\Debug\netcoreapp2.1\Consoleapphelper.cs.AssemblyInfoInputs.cache
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\obj\Debug\netcoreapp2.1\Consoleapphelper.cs.AssemblyInfo.cs
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\bin\Debug\netcoreapp2.1\Consoleapphelper.cs.deps.json
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\bin\Debug\netcoreapp2.1\Consoleapphelper.cs.runtimeconfig.json
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\bin\Debug\netcoreapp2.1\Consoleapphelper.cs.runtimeconfig.dev.json
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\bin\Debug\netcoreapp2.1\Consoleapphelper.cs.dll
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\bin\Debug\netcoreapp2.1\Consoleapphelper.cs.pdb
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\obj\Debug\netcoreapp2.1\Consoleapphelper.cs.dll
+C:\Users\admin\source\repos\Consoleapphelper.cs\Consoleapphelper.cs\obj\Debug\netcoreapp2.1\Consoleapphelper.cs.pdb

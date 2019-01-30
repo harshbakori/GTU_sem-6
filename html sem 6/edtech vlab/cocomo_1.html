@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function displayans(){
+        var loc = parseInt(document.getElementById("Kloc").value);
+       // window.alert(a);
+        
+////////////////////////////////////////////organic modal///////////////////////////////////////////////////////////            
+    var a = 2.4;
+    var b = 1.05;
+    var c = 2.5;
+    var d = 0.38;
+            
+    var effort = a*(Math.pow(loc,b));
+    var duration = c*(Math.pow(effort,d));
+    var staffing = effort/duration;
+            
+        document.getElementById("a").innerHTML =  a;
+        document.getElementById("b").innerHTML =  b;
+        document.getElementById("c").innerHTML =  c;
+        document.getElementById("d").innerHTML =  d;
+        document.getElementById("effort").innerHTML = effort;
+        document.getElementById("duration").innerHTML =  duration;
+        document.getElementById("staffing").innerHTML = staffing;
+        document.getElementById("ansk").innerHTML = loc;
+    
+            
+//////////////////////////////////////////////////semi-ditach modal/////////////////////////////////////////////////            
+            a = 3;
+            b=1.12;
+            c=2.5;
+            d=0.35;
+            
+         effort = a*(Math.pow(loc,b));
+         duration = c*(Math.pow(effort,d));
+         staffing = effort/duration;
+            
+        document.getElementById("a1").innerHTML =  a;
+        document.getElementById("b1").innerHTML =  b;
+        document.getElementById("c1").innerHTML =  c;
+        document.getElementById("d1").innerHTML =  d;
+        document.getElementById("effort1").innerHTML = effort;
+        document.getElementById("duration1").innerHTML =  duration;
+        document.getElementById("staffing1").innerHTML = staffing;
+        document.getElementById("ansk1").innerHTML = loc;
+            
+//////////////////////////////////////////////////Embedded modal/////////////////////////////////////////////////////////            
+            a = 3.6;
+            b=1.2;
+            c=2.5;
+            d=0.32;
+            
+         effort = a*(Math.pow(loc,b));
+         duration = c*(Math.pow(effort,d));
+         staffing = effort/duration;
+            
+        document.getElementById("a2").innerHTML =  a;
+        document.getElementById("b2").innerHTML =  b;
+        document.getElementById("c2").innerHTML =  c;
+        document.getElementById("d2").innerHTML =  d;
+        document.getElementById("effort2").innerHTML = effort;
+        document.getElementById("duration2").innerHTML =  duration;
+        document.getElementById("staffing2").innerHTML = staffing;
+        document.getElementById("ansk2").innerHTML = loc;
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center">Cocomo calculator</h1>
+
+    <div align="center">
+    Enter estimated kilo line of codes : <input type="text" id="Kloc"><br><br>
+    <input type="button" value="calculate" onclick="displayans()"><br><br>
+        
+        <p>
+            effort = a*loc<sup>b</sup>
+            <br>
+         duration = c*effort<sup>d</sup>
+         <br>
+         staffing = effort/duration
+        </p>
+    </div>
+    <table border="1" align="center">
+       <tr style="background: #B2B8C8">
+          <th>Modal name</th>
+           <th>variable<br> A</th>
+           <th>variable <br>B</th>
+           <th>variable <br>C</th>
+           <th>variable <br> D</th>
+           <th>KLOC</th>
+           <th>effort(in persion per month)</th>
+           <th>duration(in months)</th>
+           <th>staffing(recommended)</th>
+       </tr>
+        <tr>
+           <td>Organic</td>
+            <td>
+                <p id="a"></p>
+            </td>
+            <td>
+                <p id="b"></p>
+            </td>
+            <td>
+                <p id="c"></p>
+            </td>
+            <td>
+                <p id="d"></p>
+            </td>
+            <td>
+                <p id="ansk"></p>
+            </td>
+            <td>
+                <p id="effort"></p>
+            </td>
+            <td>
+                <p id="duration"></p>
+            </td>
+            <td>
+                <p id="staffing"></p>
+            </td>
+        </tr>
+        <tr>
+           <td>Semi-detached</td>
+            <td>
+                <p id="a1"></p>
+            </td>
+            <td>
+                <p id="b1"></p>
+            </td>
+            <td>
+                <p id="c1"></p>
+            </td>
+            <td>
+                <p id="d1"></p>
+            </td>
+            <td>
+                <p id="ansk1"></p>
+            </td>
+            <td>
+                <p id="effort1"></p>
+            </td>
+            <td>
+                <p id="duration1"></p>
+            </td>
+            <td>
+                <p id="staffing1"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>Embedded</td>
+            <td>
+                <p id="a2"></p>
+            </td>
+            <td>
+                <p id="b2"></p>
+            </td>
+            <td>
+                <p id="c2"></p>
+            </td>
+            <td>
+                <p id="d2"></p>
+            </td>
+            <td>
+                <p id="ansk2"></p>
+            </td>
+            <td>
+                <p id="effort2"></p>
+            </td>
+            <td>
+                <p id="duration2"></p>
+            </td>
+            <td>
+                <p id="staffing2"></p>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
