@@ -40,11 +40,7 @@ namespace Conclass_abstract
             return a;
         }
     }
-    interface tt
-    {
-        void ma();
-    }
-
+   
 
 
     class Program

@@ -5,3 +5,7 @@ C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Concla
 C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.exe
 C:\Users\admin\source\repos\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.pdb
+H:\Github\sem 6\sem6 c#\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.csprojAssemblyReference.cache
+H:\Github\sem 6\sem6 c#\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.csproj.CoreCompileInputs.cache
+H:\Github\sem 6\sem6 c#\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.exe
+H:\Github\sem 6\sem6 c#\Conclass_abstract\Conclass_abstract\obj\Debug\Conclass_abstract.pdb
