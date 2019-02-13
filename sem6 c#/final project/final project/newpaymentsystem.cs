@@ -8,80 +8,68 @@ using System.Data;
 
 namespace final_project
 {
-    class Program
+    
+    class evol
     {
-          public static bool loginflag=false;
-          public static bool adminlogin=false;
-          public const int minimumamount = 5000;
-          public static String password, number;
-        static void Main(string[] args)
+        public const int minimumamount = 5000;
+        public static String password, number;
+        public static bool adminlogin = false;
+        public static bool loginflag = false;
+        public static void logout() { loginflag = false; adminlogin = false; }
+        public void main()
         {
-            // showdata();
-            retry:
-            Console.WriteLine("please login");
-             login();
-            if(adminlogin == true)
+            Console.WriteLine("1)diposit");
+            Console.WriteLine("2)check balance");
+            Console.WriteLine("3)pay");
+            Console.WriteLine("4)logout");
+            Console.WriteLine("enter your choice");
+            int ch = Convert.ToInt32(Console.ReadLine());
+            switch(ch)
             {
-                loginflag = true;
+                case 1:
+                    deposit();
+                    break;
+                case 2:
+                    //check_ballance();
+                    break;
+                case 3:
+                    //pay();
+                    break;
+                case 4:
+                    logout();
+                    break;
             }
-            if(loginflag == true)
-            {
-                    Console.WriteLine("enter your choice \n1)logout \n2)check balance\n3)payment");
-                //all the data can be enterd
-                if (adminlogin == true) { Console.WriteLine("admin can have this ragister functionality press 10) for it "); }
-                    int ch = Convert.ToInt32(Console.ReadLine());
-                    switch (ch)
-                    {
-                        case 1:
-                            logout();
-                            break;
-                        case 2:
-                            checkbalance();
-                            break;
-                        case 3:
-                            payto();
-                            break;
-
-                    case 10:
-                            if(adminlogin == true)
-                               {
-                                   ragister(); 
-                               }
-                        else { Console.WriteLine("you are not authorised"); }
-                            break;
-                    }
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("try again");
-                goto retry;
-            }
-            goto retry;
         }
-        public  static void payto()
+        public void deposit()
         {
-            Console.WriteLine("entwr the number to make payment");
-
-        }
-        public static void checkbalance()
-        {
+            Console.WriteLine("enter amount to diposit");
+            int ball = Convert.ToInt32(Console.ReadLine());
             SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
-            SqlDataAdapter adp = new SqlDataAdapter("select * from login", con);  ///fech all the entryes in the table login
+            SqlDataAdapter adp = new SqlDataAdapter("select * from login where number ='"+number+"'", con);
             DataSet ds = new DataSet();
-           // adp.FillSchema(ds,SchemaType.Source,"login"); //////initializing schema of the ds
-            adp.Fill(ds);
-            Console.WriteLine("data feched with balance");
-            Console.WriteLine("balance is " + ds.Tables[0].Rows[0]["ballance"]);
-                    ////////////////////////////////////////////////////////////////remaining to print balance///////////////////////////////////////
-            }
-            public static void ragister()
+            adp.Fill(ds, "login");
+            ds.Tables["login"].Rows[0]["ballance"] = Convert.ToString(ball);
+            SqlCommandBuilder scmd = new SqlCommandBuilder(adp);
+            adp = scmd.DataAdapter;
+            adp.Update(ds, "login");
+            Console.WriteLine("Record updated");
+            Console.ReadKey();
+        }
+    }
+    class login1 : evol
+    {
+        public static void ragister()
         {
             /////////////////////////////////////////user data entry ////////////////////////////////////////
+            relogin:
             Console.WriteLine("enter new user number");
             number = Console.ReadLine();
-            Console.WriteLine("password");
+            Console.WriteLine("enter password");
             password = Console.ReadLine();
+            Console.WriteLine("re enter password");
+            String re_password = Console.ReadLine();
+            if (password.Equals(re_password))
+            {
             rebalance:
             Console.WriteLine("balance pleas");
             int balance = Convert.ToInt32(Console.ReadLine());
@@ -92,7 +80,7 @@ namespace final_project
             }
             ////////////////////////////user data enterd by admin to ragister////////////////////////////////
             SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
-            SqlDataAdapter adp = new SqlDataAdapter( "select * from login",con);  ///fech all the entryes in the table login
+            SqlDataAdapter adp = new SqlDataAdapter("select * from login", con);  ///fech all the entryes in the table login
             DataSet ds = new DataSet();
             adp.FillSchema(ds, SchemaType.Source, "login"); //////initializing schema of the ds
             adp.Fill(ds); ///set entryes in data adapter
@@ -103,7 +91,14 @@ namespace final_project
             ds.Tables["login"].Rows.Add(dr);
             SqlCommandBuilder scmb = new SqlCommandBuilder(adp); //////built the update query
             adp = scmb.DataAdapter; /////set the data adapter for updation
-            adp.Update(ds,"login"); ////  update adp use data in login table from dataset
+            adp.Update(ds, "login"); ////  update adp use data in login table from dataset
+            Console.WriteLine("you are ragistered");
+            }
+            else
+            {
+                Console.WriteLine("please enter correct password and ragister again");
+                goto relogin;
+            }
         }
         public static void login()
         {
@@ -117,7 +112,7 @@ namespace final_project
             String number = Console.ReadLine();
             Console.WriteLine("enter the password");
             String password = Console.ReadLine();
-            if(number.Equals("Admin") && password.Equals("admin"))
+            if (number.Equals("Admin") && password.Equals("admin"))
             {
                 adminlogin = true;
                 goto end;                         //goto end of login function
@@ -125,11 +120,9 @@ namespace final_project
             /////////////user input complite////////////
             cmd.CommandText = "select * from login where number =" + number + "";   /// find number in database and fatch data 
             SqlDataReader reader = cmd.ExecuteReader(); //execute the query to read
-            if (reader.HasRows) 
+            if (reader.HasRows)
             {
-               // Console.WriteLine("has rows");
                 reader.Read(); //read data from sql command 
-                               // Console.WriteLine("{0}\t{1}\t{2}", reader.GetString(0), reader.GetString(1),reader.GetInt32(2)); //print the data on screen untill it is not empty.
                 if (reader.GetString(1).Equals(password))  //check for password correction
                 {
                     Console.WriteLine("login");
@@ -138,28 +131,50 @@ namespace final_project
                 else { Console.WriteLine("incorrect password"); }
             }
             else { Console.WriteLine("enter correct usernumber"); }
-        //cmd.CommandText = "insert into S ('id','name') values ('1','test')";
-        //cmd.ExecuteNonQuery();
-        // Console.WriteLine("write done");
+        
         end:                                         // jump for admin login
             con.Close();
+            Console.WriteLine("you are logedin");
+            evol e = new evol();
+            e.main();
+            //////////////////////////////////////////////////////////////////////////////////////////////////
             Console.ReadKey();
         }
-        public static void logout() {loginflag = false;adminlogin = false;}//just a logout function
+    }
+    class newpaymentsystem : login1
+    {
+        static void Main(string[] args)
+        {
+        // showdata();
+        //retry:
+            Console.WriteLine("please login");
+                Console.WriteLine("enter your choice \n1)login \n2)ragister");
+                int ch = Convert.ToInt32(Console.ReadLine());
+                switch (ch)
+                {
+                    case 1:
+                        login();
+                        break;
+                    case 2:
+                        ragister(); 
+                        break;
+                case 3:
+                    //showdata();
+                    break;
+                }
+        }
         public static void showdata()
         {
             SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
-            SqlDataAdapter adp = new SqlDataAdapter("select * from S ", con);
+            SqlDataAdapter adp = new SqlDataAdapter("select * from login ", con);
             DataSet ds = new DataSet();
             adp.Fill(ds, "S");
-            ds.Tables["S"].Rows[0]["Id"] = "10";
+            ds.Tables["S"].Rows[0]["ballance"] = "10";
             SqlCommandBuilder scmd = new SqlCommandBuilder(adp);
             adp = scmd.DataAdapter;
-            adp.Update(ds,"S");
+            adp.Update(ds, "S");
             Console.WriteLine("Record updated");
             Console.ReadKey();
         }
-
-
     }
 }
