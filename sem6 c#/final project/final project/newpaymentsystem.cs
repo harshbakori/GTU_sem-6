@@ -8,16 +8,16 @@ using System.Data;
 
 namespace final_project
 {
-    
     class evol
     {
         public const int minimumamount = 5000;
-        public static String password, number;
+        public static string password, number;
         public static bool adminlogin = false;
         public static bool loginflag = false;
         public static void logout() { loginflag = false; adminlogin = false; }
         public void main()
         {
+            
             Console.WriteLine("1)diposit");
             Console.WriteLine("2)check balance");
             Console.WriteLine("3)pay");
@@ -30,29 +30,82 @@ namespace final_project
                     deposit();
                     break;
                 case 2:
-                    //check_ballance();
+                    check_ballance();
                     break;
                 case 3:
-                    //pay();
+                    pay();
                     break;
                 case 4:
                     logout();
                     break;
             }
         }
+        public void pay()
+        {
+            Console.WriteLine("pay to");
+            string usr = Console.ReadLine();
+            Console.WriteLine("enter amount to pay");
+            int ball = Convert.ToInt32(Console.ReadLine());
+
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
+            //////////////////////////////////////////////////////////////pay to client//////////////////////////////////////////////////////////////
+            SqlDataAdapter adp1 = new SqlDataAdapter("select * from Login where number ='" + usr + "'", con); /////select query for database
+            DataSet ds1 = new DataSet();
+            adp1.Fill(ds1, "Login");
+            int sba2 = Convert.ToInt32(ds1.Tables["Login"].Rows[0]["ballance"]); //////////////////fech old diposit and enter into sball
+            sba2 = sba2 + ball; /////////////////////////increas ballance with sball
+            ds1.Tables["Login"].Rows[0]["ballance"] = sba2; ////////////////enter ballance into database
+            SqlCommandBuilder scmd1 = new SqlCommandBuilder(adp1);
+            adp1 = scmd1.DataAdapter;
+            adp1.Update(ds1, "Login"); /////////////update the ds
+            Console.WriteLine("Record updated");
+            ///////////////////////////////////////////////////////////diduct the amount////////////////////////////////////////////////////////////////////////
+
+            SqlDataAdapter adp = new SqlDataAdapter("select * from Login where number ='" + number + "'", con); /////select query for database
+            DataSet ds = new DataSet();
+            adp.Fill(ds, "Login");
+            int sbal = Convert.ToInt32(ds.Tables["Login"].Rows[0]["ballance"]); //////////////////fech old diposit and enter into sball
+            ball = sbal - ball; /////////////////////////dicreas ballance with sball
+                if(ball<30)
+            {
+                Console.WriteLine("insaficiant funds please try again");
+                goto inf;
+            }
+            ds.Tables["Login"].Rows[0]["ballance"] = ball; ////////////////enter ballance into database
+            SqlCommandBuilder scmd = new SqlCommandBuilder(adp);
+            adp = scmd.DataAdapter;
+            adp.Update(ds, "Login"); /////////////update the ds
+            Console.WriteLine("Record updated"); ////////////update into database
+            Console.WriteLine("new ballance is" + ds.Tables["Login"].Rows[0]["ballance"]);///////////////print current ballance
+         inf:
+            Console.ReadKey();
+        }
+        public void check_ballance()
+        {
+           
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
+            SqlDataAdapter adp = new SqlDataAdapter("select * from Login where number ='" + number + "'", con);
+            DataSet ds = new DataSet();
+            adp.Fill(ds, "Login");
+            Console.WriteLine(" ballance is" + ds.Tables["Login"].Rows[0]["ballance"]);///////////////print current ballance
+            Console.ReadKey();
+        }
         public void deposit()
         {
             Console.WriteLine("enter amount to diposit");
             int ball = Convert.ToInt32(Console.ReadLine());
             SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
-            SqlDataAdapter adp = new SqlDataAdapter("select * from login where number ='"+number+"'", con);
+            SqlDataAdapter adp = new SqlDataAdapter("select * from Login where number ='"+number+"'", con);/////select query for database
             DataSet ds = new DataSet();
-            adp.Fill(ds, "login");
-            ds.Tables["login"].Rows[0]["ballance"] = Convert.ToString(ball);
+            adp.Fill(ds, "Login");
+            int sbal = Convert.ToInt32(ds.Tables["Login"].Rows[0]["ballance"]); //////////////////fech old diposit and enter into sball
+            ball = sbal + ball; /////////////////////////increas ballance with sball
+            ds.Tables["Login"].Rows[0]["ballance"] = ball; ////////////////enter ballance into database
             SqlCommandBuilder scmd = new SqlCommandBuilder(adp);
             adp = scmd.DataAdapter;
-            adp.Update(ds, "login");
-            Console.WriteLine("Record updated");
+            adp.Update(ds, "Login"); /////////////update the ds
+            Console.WriteLine("Record updated"); ////////////update into database
+            Console.WriteLine("new ballance is"+ds.Tables["Login"].Rows[0]["ballance"]);///////////////print current ballance
             Console.ReadKey();
         }
     }
@@ -92,6 +145,7 @@ namespace final_project
             SqlCommandBuilder scmb = new SqlCommandBuilder(adp); //////built the update query
             adp = scmb.DataAdapter; /////set the data adapter for updation
             adp.Update(ds, "login"); ////  update adp use data in login table from dataset
+            Console.Clear();
             Console.WriteLine("you are ragistered");
             }
             else
@@ -102,6 +156,8 @@ namespace final_project
         }
         public static void login()
         {
+        retry:
+
             SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
             con.Open();
             SqlCommand cmd = new SqlCommand();
@@ -109,9 +165,9 @@ namespace final_project
             ///////////////////////////////////////////////////connected to database/////////////////////////////////////////////////////////////////
             Console.WriteLine("connected");
             Console.WriteLine("Enter user number");
-            String number = Console.ReadLine();
+            number = Console.ReadLine();
             Console.WriteLine("enter the password");
-            String password = Console.ReadLine();
+            password = Console.ReadLine();
             if (number.Equals("Admin") && password.Equals("admin"))
             {
                 adminlogin = true;
@@ -128,15 +184,20 @@ namespace final_project
                     Console.WriteLine("login");
                     loginflag = true;
                 }
-                else { Console.WriteLine("incorrect password"); }
+                else { Console.Clear(); Console.WriteLine("incorrect password"); }
             }
-            else { Console.WriteLine("enter correct usernumber"); }
-        
-        end:                                         // jump for admin login
+            else { Console.Clear(); Console.WriteLine("enter correct usernumber"); }
+        end:
+            // jump for admin login
             con.Close();
+            if(adminlogin==true || loginflag==true)
+            {
+                Console.Clear();
             Console.WriteLine("you are logedin");
             evol e = new evol();
             e.main();
+            }
+            else { goto retry; }
             //////////////////////////////////////////////////////////////////////////////////////////////////
             Console.ReadKey();
         }
@@ -146,8 +207,7 @@ namespace final_project
         static void Main(string[] args)
         {
         // showdata();
-        //retry:
-            Console.WriteLine("please login");
+            one:
                 Console.WriteLine("enter your choice \n1)login \n2)ragister");
                 int ch = Convert.ToInt32(Console.ReadLine());
                 switch (ch)
@@ -158,23 +218,8 @@ namespace final_project
                     case 2:
                         ragister(); 
                         break;
-                case 3:
-                    //showdata();
-                    break;
                 }
-        }
-        public static void showdata()
-        {
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'C:\Users\admin\source\repos\final project\final project\Database1.mdf'; Integrated Security = True");
-            SqlDataAdapter adp = new SqlDataAdapter("select * from login ", con);
-            DataSet ds = new DataSet();
-            adp.Fill(ds, "S");
-            ds.Tables["S"].Rows[0]["ballance"] = "10";
-            SqlCommandBuilder scmd = new SqlCommandBuilder(adp);
-            adp = scmd.DataAdapter;
-            adp.Update(ds, "S");
-            Console.WriteLine("Record updated");
-            Console.ReadKey();
+            goto one;
         }
     }
 }
