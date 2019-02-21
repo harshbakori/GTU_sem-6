@@ -1,0 +1,100 @@
+font#title {
+    font-family: sans-serif;
+    font-size: 170%;
+}
+
+#table {
+    align-self: center;
+
+}
+
+#reset_pass {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+#mid {
+    width: 30%;
+    padding-left: 30%;
+
+}
+
+#uimage {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px
+}
+
+
+
+.submit {
+    margin-top: 10px;
+    border-radius: 3px;
+    border: solid black 1px;
+    margin-left: 40px;
+}
+
+.f_left {
+    float: left;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.f_right {
+    float: right;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+#head {
+    background-color: #0652DD;
+    height:80px;
+    
+}
+
+
+
+legend {
+    margin-left: 300px;
+}
+
+.navbar
+{
+    position: sticky!important;
+    top: 0;
+    z-index: 1;
+}
+
+.nav-link
+{
+    color: aliceblue;
+    
+}
+
+.accordion
+{
+    position: sticky!important;
+    top: 71px;
+}
+
+.media h5{
+    border-radius: 5px;
+    padding-left: 5px;
+    width: 70;
+}
+
+.media img{
+    width: 200px;
+    border-radius: 5px;
+    resize: 200*200;
+}
+
+.card1
+{
+    background-color: #007bff!important;
+    border-radius: 15px;
+    overflow: hidden;
+    flex: 30% !important;
+    margin-bottom: 15px !important;
+}
