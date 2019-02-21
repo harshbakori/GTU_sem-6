@@ -28,74 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button_1 = new System.Windows.Forms.Button();
-            this.button_2 = new System.Windows.Forms.Button();
-            this.button_3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lb_fname = new System.Windows.Forms.Label();
+            this.bt_next = new System.Windows.Forms.Button();
+            this.lb_name = new System.Windows.Forms.Label();
+            this.lb_pass = new System.Windows.Forms.Label();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.txt_pass = new System.Windows.Forms.TextBox();
+            this.bt_cancle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_fname
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(342, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Calculater";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lb_fname.AutoSize = true;
+            this.lb_fname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_fname.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_fname.Location = new System.Drawing.Point(99, 13);
+            this.lb_fname.Name = "lb_fname";
+            this.lb_fname.Size = new System.Drawing.Size(190, 31);
+            this.lb_fname.TabIndex = 0;
+            this.lb_fname.Tag = "Input Login form";
+            this.lb_fname.Text = "Input Login form";
+            this.lb_fname.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button_1
+            // bt_next
             // 
-            this.button_1.Location = new System.Drawing.Point(160, 84);
-            this.button_1.Name = "button_1";
-            this.button_1.Size = new System.Drawing.Size(75, 23);
-            this.button_1.TabIndex = 1;
-            this.button_1.Text = "1";
-            this.button_1.UseVisualStyleBackColor = true;
+            this.bt_next.Location = new System.Drawing.Point(210, 230);
+            this.bt_next.Name = "bt_next";
+            this.bt_next.Size = new System.Drawing.Size(75, 23);
+            this.bt_next.TabIndex = 2;
+            this.bt_next.Text = "go to login";
+            this.bt_next.UseVisualStyleBackColor = true;
+            this.bt_next.Click += new System.EventHandler(this.button_2_Click);
             // 
-            // button_2
+            // lb_name
             // 
-            this.button_2.Location = new System.Drawing.Point(281, 84);
-            this.button_2.Name = "button_2";
-            this.button_2.Size = new System.Drawing.Size(75, 23);
-            this.button_2.TabIndex = 2;
-            this.button_2.Text = "2";
-            this.button_2.UseVisualStyleBackColor = true;
+            this.lb_name.AutoSize = true;
+            this.lb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_name.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name.Location = new System.Drawing.Point(25, 106);
+            this.lb_name.Name = "lb_name";
+            this.lb_name.Size = new System.Drawing.Size(76, 31);
+            this.lb_name.TabIndex = 3;
+            this.lb_name.Tag = "Name";
+            this.lb_name.Text = "Name";
             // 
-            // button_3
+            // lb_pass
             // 
-            this.button_3.Location = new System.Drawing.Point(404, 84);
-            this.button_3.Name = "button_3";
-            this.button_3.Size = new System.Drawing.Size(75, 23);
-            this.button_3.TabIndex = 3;
-            this.button_3.Text = "3";
-            this.button_3.UseVisualStyleBackColor = true;
+            this.lb_pass.AutoSize = true;
+            this.lb_pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_pass.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_pass.Location = new System.Drawing.Point(25, 165);
+            this.lb_pass.Name = "lb_pass";
+            this.lb_pass.Size = new System.Drawing.Size(115, 31);
+            this.lb_pass.TabIndex = 4;
+            this.lb_pass.Tag = "Password";
+            this.lb_pass.Text = "Password";
             // 
-            // comboBox1
+            // txt_name
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "one",
-            "two",
-            "three"});
-            this.comboBox1.Location = new System.Drawing.Point(515, 84);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.txt_name.Location = new System.Drawing.Point(210, 112);
+            this.txt_name.MaxLength = 50;
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(181, 20);
+            this.txt_name.TabIndex = 5;
+            this.txt_name.Tag = "Enter Name";
+            // 
+            // txt_pass
+            // 
+            this.txt_pass.Location = new System.Drawing.Point(210, 171);
+            this.txt_pass.MaxLength = 50;
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.PasswordChar = '*';
+            this.txt_pass.Size = new System.Drawing.Size(181, 20);
+            this.txt_pass.TabIndex = 6;
+            this.txt_pass.Tag = "Enter Password";
+            // 
+            // bt_cancle
+            // 
+            this.bt_cancle.Location = new System.Drawing.Point(316, 230);
+            this.bt_cancle.Name = "bt_cancle";
+            this.bt_cancle.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancle.TabIndex = 7;
+            this.bt_cancle.Tag = "Cancle";
+            this.bt_cancle.Text = "Cancle";
+            this.bt_cancle.UseVisualStyleBackColor = true;
+            this.bt_cancle.Click += new System.EventHandler(this.bt_cancle_Click);
             // 
             // Form1
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 366);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button_3);
-            this.Controls.Add(this.button_2);
-            this.Controls.Add(this.button_1);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(451, 289);
+            this.Controls.Add(this.bt_cancle);
+            this.Controls.Add(this.txt_pass);
+            this.Controls.Add(this.txt_name);
+            this.Controls.Add(this.lb_pass);
+            this.Controls.Add(this.lb_name);
+            this.Controls.Add(this.bt_next);
+            this.Controls.Add(this.lb_fname);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "form for test";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,11 +140,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button_1;
-        private System.Windows.Forms.Button button_2;
-        private System.Windows.Forms.Button button_3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lb_fname;
+        private System.Windows.Forms.Button bt_next;
+        private System.Windows.Forms.Label lb_name;
+        private System.Windows.Forms.Label lb_pass;
+        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.TextBox txt_pass;
+        private System.Windows.Forms.Button bt_cancle;
     }
 }
 

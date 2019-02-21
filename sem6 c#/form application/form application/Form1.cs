@@ -26,5 +26,38 @@ namespace form_application
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hi bro how are you?");
+
+            TextBox t = new TextBox();
+            t.Location=new Point(100, 100);
+            this.components.Add(t);
+        }
+
+        private void button_2_Click(object sender, EventArgs e)
+        {
+            if(txt_name.Text=="Admin" && txt_pass.Text=="Admin")
+            {
+                Form2 f2 = new Form2();
+                this.Hide(); ///hide the main form....
+                //this.Close();///close the aplication...all
+                f2.BackColor = Color.Aqua;
+                // f2.WindowState = MaximizeBox;
+                f2.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Information");
+            }
+        }
+
+
+
+        private void bt_cancle_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

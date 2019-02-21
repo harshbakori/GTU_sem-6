@@ -21,5 +21,6 @@ class lab1{
         float h = -sum/(float)Math.log(2);
         System.out.println("the entropy is");
         System.out.println(h);
+        sc.close();
     }
 }
