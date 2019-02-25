@@ -21,8 +21,15 @@ namespace form_application
 
         private void bt_go_back_Click(object sender, EventArgs e)
         {
+
+           // this.Parent.Show();
             this.Close();
             //Form1.
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
