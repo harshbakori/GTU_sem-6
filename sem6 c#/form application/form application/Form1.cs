@@ -76,5 +76,10 @@ namespace form_application
                 MessageBox.Show("Invalid Information");
             }
         }
+
+        private void txt_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
